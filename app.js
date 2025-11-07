@@ -9,6 +9,60 @@ const CONFIG = {
 };
 
 // ============================================
+// IP Blacklist
+// ============================================
+const IP_BLACKLIST = [
+  '192.168.50.145',
+  // Add more IPs below:
+  // '10.0.0.123',
+  // '172.16.0.45',
+  
+];
+
+/**
+ * Check if the current user's IP is blacklisted
+ * Note: This is client-side and can be bypassed. For real security,
+ * implement IP blocking on your server/firewall level.
+ */
+function checkIPBlacklist() {
+  // Attempt to get user's IP (limited in browser environment)
+  // This is a placeholder - actual IP detection requires server-side implementation
+  // or using a third-party service
+  
+  // For demonstration, you could use a service like:
+  // fetch('https://api.ipify.org?format=json')
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     if (IP_BLACKLIST.includes(data.ip)) {
+  //       blockAccess();
+  //     }
+  //   });
+  
+  console.log('IP blacklist check initialized');
+}
+
+function blockAccess() {
+  document.body.innerHTML = `
+    <div style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #1a1a1a;
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    ">
+      <h1 style="font-size: 3rem; margin-bottom: 1rem;">🚫</h1>
+      <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Access Denied</h2>
+      <p style="color: #999; font-size: 1.1rem;">Your IP address has been blocked.</p>
+    </div>
+  `;
+}
+
+// ============================================
 // Utilities
 // ============================================
 const qs = (selector, parent = document) => parent.querySelector(selector);
@@ -380,6 +434,9 @@ function setupAnnouncement() {
 }
 
 function init() {
+  // Check IP blacklist first
+  checkIPBlacklist();
+  
   updateIPDisplay();
   setupCopyHandlers();
   setupServerStatus();
