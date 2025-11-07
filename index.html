@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sachaserver – A Refined Blocky World</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Toast notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Announcement Bar -->
+  <div id="announcement-bar" class="announcement" role="status" aria-live="polite">
+    <div class="container ann-inner">
+      <span class="ann-dot" aria-hidden="true"></span>
+      <span class="ann-badge">Announcement</span>
+      <span class="ann-text">Release: Sat 8 Nov, 2pm AEDT</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <button id="server-name" class="brand" aria-label="Click to copy server IP">
+        <img src="assets/logo.svg" alt="Sachaserver logo" class="brand-logo">
+        <span class="brand-text">SACHASERVER</span>
+      </button>
+      <nav class="nav">
+        <a href="#status" class="nav-link">Status</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#rules" class="nav-link">Rules</a>
+        <a href="#join" class="nav-link">Join</a>
+        <a href="#community" class="nav-link">Community & Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <h1 class="hero-title reveal" data-parallax="0.2">SACHASERVER</h1>
+      <p class="hero-subtitle reveal">A friendly blocky world with a crisp vibe.</p>
+      
+      <div class="ip-bar reveal" id="ip-bar">
+        <code id="ip-display" class="ip-text">play.sachaserver.xyz</code>
+        <button id="copy-ip-btn" class="btn btn-primary" aria-label="Copy server IP">
+          Copy IP
+        </button>
+      </div>
+      
+      <a href="#join" class="btn btn-cta reveal">Join Now</a>
+    </div>
+  </section>
+
+  <!-- Status Section -->
+  <section id="status" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Server Status</h2>
+      <div class="status-card card reveal">
+        <div class="status-header">
+          <div id="status-indicator" class="status-pill">
+            <span class="status-dot"></span>
+            <span class="status-text">Checking...</span>
+          </div>
+          <button id="refresh-status" class="btn-icon" aria-label="Refresh status">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+            </svg>
+          </button>
+        </div>
+        <div class="status-grid">
+          <div class="status-item">
+            <span class="status-label">Players</span>
+            <span id="players-online" class="status-value">—</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">Version</span>
+            <span id="server-version" class="status-value">—</span>
+          </div>
+          <div class="status-item status-motd">
+            <span class="status-label">MOTD</span>
+            <span id="motd" class="status-value">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">What We Offer</h2>
+      <div class="features-grid">
+        <div class="feature-card card reveal">
+          <div class="feature-icon">🏡</div>
+          <h3 class="feature-title">Cozy Survival</h3>
+          <p class="feature-desc">Build, explore, and thrive in a welcoming world.</p>
+        </div>
+        <div class="feature-card card reveal">
+          <div class="feature-icon">💰</div>
+          <h3 class="feature-title">Player Economy</h3>
+          <p class="feature-desc">Trade, buy, and sell with a thriving marketplace.</p>
+        </div>
+        <div class="feature-card card reveal">
+          <div class="feature-icon">🎮</div>
+          <h3 class="feature-title">Minigames</h3>
+          <p class="feature-desc">Take a break with fun, competitive events.</p>
+        </div>
+        <div class="feature-card card reveal">
+          <div class="feature-icon">🛡️</div>
+          <h3 class="feature-title">Land Claims</h3>
+          <p class="feature-desc">Protect your builds from unwanted changes.</p>
+        </div>
+        <div class="feature-card card reveal">
+          <div class="feature-icon">🎉</div>
+          <h3 class="feature-title">Events</h3>
+          <p class="feature-desc">Join community-driven happenings and competitions.</p>
+        </div>
+        <div class="feature-card card reveal">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Low Ping</h3>
+          <p class="feature-desc">Smooth gameplay with optimized infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-card card reveal" style="background: linear-gradient(135deg, #FFD60A 0%, #FF8A00 100%);"></div>
+        <div class="gallery-card card reveal" style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD60A 100%);"></div>
+        <div class="gallery-card card reveal" style="background: linear-gradient(135deg, #FFD60A 0%, #1a1a1a 100%);"></div>
+        <div class="gallery-card card reveal" style="background: linear-gradient(135deg, #333 0%, #FFD60A 50%, #333 100%);"></div>
+        <div class="gallery-card card reveal" style="background: linear-gradient(135deg, #FFD60A 0%, #fff 100%);"></div>
+        <div class="gallery-card card reveal" style="background: linear-gradient(135deg, #000 0%, #FFD60A 50%, #fff 100%);"></div>
+      </div>
+      <p class="gallery-note">Screenshots coming soon!</p>
+    </div>
+  </section>
+
+  <!-- Rules Section -->
+  <section id="rules" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Server Rules</h2>
+      <div class="rules-card card reveal">
+        <ul class="rules-list">
+          <li>✅ Be kind and respectful to all players</li>
+          <li>✅ No griefing or destroying others' builds</li>
+          <li>✅ No cheating, hacking, or exploiting bugs</li>
+          <li>✅ Keep chat friendly and appropriate</li>
+          <li>✅ Follow staff instructions</li>
+          <li>✅ Have fun and be creative!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Section -->
+  <section id="join" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">How to Join</h2>
+      <div class="join-grid">
+        <div class="join-card card reveal">
+          <h3 class="join-platform">Java Edition</h3>
+          <ol class="join-steps">
+            <li>Open Minecraft Java Edition</li>
+            <li>Click <strong>Multiplayer</strong></li>
+            <li>Click <strong>Add Server</strong></li>
+            <li>Paste the server IP: <code id="ip-java" class="inline-ip">play.sachaserver.xyz</code></li>
+            <li>Click <strong>Done</strong> and join!</li>
+          </ol>
+          <button class="btn btn-secondary copy-btn" data-copy="play.sachaserver.xyz">Copy IP</button>
+        </div>
+        <div class="join-card card reveal">
+          <h3 class="join-platform">Bedrock Edition</h3>
+          <ol class="join-steps">
+            <li>Open Minecraft Bedrock Edition</li>
+            <li>Go to the <strong>Servers</strong> tab</li>
+            <li>Click <strong>Add Server</strong></li>
+            <li>Enter IP: <code class="inline-ip">play.sachaserver.xyz</code></li>
+            <li>Port: <code class="inline-ip">19132</code> (default)</li>
+            <li>Save and connect!</li>
+          </ol>
+          <button class="btn btn-secondary copy-btn" data-copy="play.sachaserver.xyz">Copy IP</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Community & Contact</h2>
+      <div class="community-grid">
+        <div class="community-card card reveal">
+          <h3 class="community-title">Discord</h3>
+          <p class="community-desc">Join our community, get updates, and chat with other players.</p>
+          <a href="https://discord.gg/dFwMD8jk4J" class="btn btn-secondary" target="_blank" rel="noopener">Join Discord</a>
+        </div>
+        <div class="community-card card reveal">
+          <h3 class="community-title">Contact Form</h3>
+          <p class="community-desc">Use this Typeform to contact us directly. You can also share feedback or report bugs — we may expand the form later.</p>
+          <div id="typeform-root" class="typeform-container">
+            <p class="typeform-placeholder">Contact form coming soon!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© 2025 Sachaserver. Built with blocks and love.</p>
+      <p class="footer-version">v1.0.0</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
